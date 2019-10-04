@@ -1,24 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+
+import ToggleContent from "./components/modal";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>Learn React</p>
       </header>
+      <div>
+        <span>Click to reveal a secret:</span>
+        <ToggleContent
+          toggle={show => <button onClick={show}>Open</button>}
+          content={hide => (
+            <p>
+              There is no spoon...
+              <button onClick={hide}>Close</button>
+            </p>
+          )}
+        />
+      </div>
     </div>
   );
 }
