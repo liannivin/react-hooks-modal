@@ -1,16 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
+import ReactDOM from "react-dom";
 
-const ToggleContent = ({ toggle, content }) => {
-  const [isShown, setIsShown] = useState(false);
-  const hide = () => setIsShown(false);
-  const show = () => setIsShown(true);
-
-  return (
-    <>
-      {toggle(show)}
-      {isShown && content(hide)}
-    </>
+const Modal = ({ children }) =>
+  ReactDOM.createPortal(
+    <div style={modal}>{children}</div>,
+    document.getElementById("modal-root")
   );
+
+const modal = {
+  position: "fixed",
+  top: "12px",
+  padding: "12px",
+  backgroundColor: "white",
+  border: "1px solid grey"
 };
 
-export default ToggleContent;
+export default Modal;

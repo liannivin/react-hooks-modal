@@ -1,22 +1,21 @@
 import React from "react";
 
-import ToggleContent from "./components/modal";
+import ToggleContent from "./components/toggleContent";
+import Modal from "./components/modal";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>Learn React</p>
-      </header>
+      <header className="App-header"></header>
       <div>
         <span>Click to reveal a secret:</span>
         <ToggleContent
           toggle={show => <button onClick={show}>Open</button>}
           content={hide => (
-            <p>
+            <Modal>
               There is no spoon...
               <button onClick={hide}>Close</button>
-            </p>
+            </Modal>
           )}
         />
       </div>
